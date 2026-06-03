@@ -10,7 +10,7 @@ public class Main {
 		Scanner scannerInput = new Scanner(System.in);
 		
 		String nomeDoArquivo = scannerInput.nextLine();
-		try(Scanner scannerFile = new Scanner(Paths.get("C:\\Users\\frank\\codigosjava\\MOOCjava\\part4\\files\\times\\" + nomeDoArquivo))) {
+		try(Scanner scannerFile = new Scanner(Paths.get("C:\\Users\\gabri_htd8tpl\\OneDrive\\Desktop\\Estudos\\codigosjava\\learningjava\\part4\\files\\times\\" + nomeDoArquivo))) {
 			//verifica se ha uma proxima linha e só tenta lê-la se houver
 			while(scannerFile.hasNextLine()) {
 				String line = scannerFile.nextLine();
