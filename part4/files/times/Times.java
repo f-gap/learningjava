@@ -18,6 +18,15 @@ public class Times {
 		return "Time: " + nome + ", partidas jogadas: " + jogos; 
 	}
 	
+	public String getNome() {return nome;}
+	public int getPontos() {return pontos;}
+	public int getJogos() {return jogos;}
+	
+	public void addJogo() {this.jogos++;}
+	public void addVitoria() {this.vitorias++;}
+	public void addDerrota() {this.derrotas++;}
+	public void addEmpate() {this.empates++;}
+	
 	public void win() {
 		vitorias++;
 	}

@@ -14,17 +14,34 @@ public class Main {
 			//verifica se ha uma proxima linha e só tenta lê-la se houver
 			while(scannerFile.hasNextLine()) {
 				String line = scannerFile.nextLine();
-				System.out.println("lendo linha:" + line);
 				String[] parts = line.split(",");
 				String name1 = parts[0];
 				String name2 = parts[1];
 				int pontos1 = Integer.parseInt(parts[2]);
 				int pontos2 = Integer.parseInt(parts[3]);
 				
-				listaDeTimes.add(new Times(name1,pontos1));
-				int index1 = listaDeTimes.size();
-				listaDeTimes.add(new Times(name2,pontos2));
-				int index2 = listaDeTimes.size();
+				Times resultado = listaDeTimes.stream()
+						.filter(p -> p.getNome().equals(name1))
+						.findFirst()
+						.orElse(null);
+				if(resultado != null) {
+					resultado.addJogo();
+				}
+				else {
+					listaDeTimes.add(new Times(name1,pontos1));					
+				}
+				
+				Times resultado2 = listaDeTimes.stream()
+						.filter(p -> p.getNome().equals(name2))
+						.findFirst()
+						.orElse(null);
+				if(resultado != null) {
+					resultado.addJogo();
+				}
+				else {
+					listaDeTimes.add(new Times(name2,pontos2));
+				}
+				
 				
 			}
 		} catch (Exception e) {
