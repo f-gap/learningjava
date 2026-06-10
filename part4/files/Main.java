@@ -10,7 +10,6 @@ public class Main {
 		Scanner reader = new Scanner(System.in);
 		String input = reader.nextLine();
 		try (Scanner scanner = new Scanner(Paths.get("C:\\Users\\frank\\codigosjava\\MOOCjava\\part4\\files\\" + input))) {
-
 		    // we read the file until all lines have been read
 		    while (scanner.hasNextLine()) {
 		        // we read one line

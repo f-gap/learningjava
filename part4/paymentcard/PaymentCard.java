@@ -2,12 +2,14 @@ package part4.paymentcard;
 
 public class PaymentCard {
     private double balance;
+    private String nome;
 
-    public PaymentCard(double openingBalance) {
-    	this.balance = openingBalance;
-    }
+	public PaymentCard(double balance, String nome) {
+		this.balance = balance;
+		this.nome = nome;
+	}
 
-    public String toString() {
+	public String toString() {
     	return "The card has a balance of " + this.balance + " euros";
     }
     

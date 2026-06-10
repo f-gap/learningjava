@@ -10,37 +10,59 @@ public class Main {
 		Scanner scannerInput = new Scanner(System.in);
 		
 		String nomeDoArquivo = scannerInput.nextLine();
-		try(Scanner scannerFile = new Scanner(Paths.get("C:\\Users\\gabri_htd8tpl\\OneDrive\\Desktop\\Estudos\\codigosjava\\learningjava\\part4\\files\\times\\" + nomeDoArquivo))) {
-			//verifica se ha uma proxima linha e só tenta lê-la se houver
+		try(Scanner scannerFile = new Scanner(Paths.get("C:\\Users\\frank\\codigosjava\\learningjava\\part4\\files\\times\\" + nomeDoArquivo))) {
+
 			while(scannerFile.hasNextLine()) {
 				String line = scannerFile.nextLine();
+				System.out.println("lendo linha:" + line);
 				String[] parts = line.split(",");
-				String name1 = parts[0];
-				String name2 = parts[1];
-				int pontos1 = Integer.parseInt(parts[2]);
-				int pontos2 = Integer.parseInt(parts[3]);
-				
-				Times resultado = listaDeTimes.stream()
-						.filter(p -> p.getNome().equals(name1))
-						.findFirst()
-						.orElse(null);
-				if(resultado != null) {
-					resultado.addJogo();
+
+				boolean exists = false;
+				int idx=0;
+				for(Times time :listaDeTimes) {
+					if(parts[0].equals(time.getNome()) || parts[1].equals(time.getNome())) {
+						time.addJogo();
+						exists = true;
+					}
+					idx++;
 				}
-				else {
-					listaDeTimes.add(new Times(name1,pontos1));					
+				if(exists == false) {
+					listaDeTimes.add(new Times(parts[0], Integer.parseInt(parts[2])));
 				}
-				
-				Times resultado2 = listaDeTimes.stream()
-						.filter(p -> p.getNome().equals(name2))
-						.findFirst()
-						.orElse(null);
-				if(resultado != null) {
-					resultado.addJogo();
+
+				exists = false;
+				for(Times time :listaDeTimes) {
+					if(parts[1] == time.getNome()) {
+						time.addJogo();
+						exists = true;
+					}
 				}
-				else {
-					listaDeTimes.add(new Times(name2,pontos2));
+				if(exists == false) {
+					listaDeTimes.add(new Times(parts[1], Integer.parseInt(parts[3])));
 				}
+
+
+//				Times resultado = listaDeTimes.stream()
+//						.filter(p -> p.getNome().equals(parts[0]))
+//						.findFirst()
+//						.orElse(null);
+//				if(resultado != null) {
+//					resultado.addJogo();
+//				}
+//				else {
+//					listaDeTimes.add(new Times(parts[0],Integer.parseInt(parts[2])));
+//				}
+//
+//				Times resultado2 = listaDeTimes.stream()
+//						.filter(p -> p.getNome().equals(parts[1]))
+//						.findFirst()
+//						.orElse(null);
+//				if(resultado != null) {
+//					resultado.addJogo();
+//				}
+//				else {
+//					listaDeTimes.add(new Times(parts[1],Integer.parseInt(parts[3])));
+//				}
 				
 				
 			}
