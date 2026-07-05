@@ -6,8 +6,8 @@ public class Times {
 	private int vitorias;
 	private int derrotas;
 	private int empates;
-	
-	Times (String nome) {
+
+	Times(String nome) {
 		this.nome = nome;
 	}
 	
