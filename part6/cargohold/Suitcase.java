@@ -33,13 +33,13 @@ public class Suitcase {
     }
 
     public Item haviestItem() {
-        Item haviest = new Item(null,0.0);
+        Item heaviest = new Item(null,0.0);
         for (int i = 0;i<items.size();i++) {
-            if(items.get(i).getWeight() > haviest.getWeight()) {
-                haviest = items.get(i);
+            if(items.get(i).getWeight() > heaviest.getWeight()) {
+                heaviest = items.get(i);
             }
         }
-        return haviest;
+        return heaviest;
     }
 
     @Override
